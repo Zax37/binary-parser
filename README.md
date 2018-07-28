@@ -429,6 +429,25 @@ These are common options that can be specified in all parsers.
       });
     ```
 
+- `alreadyExists` - Skip creation of variable and - for arrays - keep adding to same array.
+    ```javascript
+    var parser = new Parser()
+      .array("planes", {
+        type: wwdPlaneHeaderParser,
+        length: "planesCount"
+      })
+      .array("planes", {
+        type: wwdPlaneBodyParser,
+        length: "planesCount",
+        alreadyExists: true
+      })
+      .array("planes", {
+        type: wwdPlaneImageSetsParser,
+        length: "planesCount",
+        alreadyExists: true
+      });
+    ```
+
 ## Examples
 See `example` for more complex examples.
 
